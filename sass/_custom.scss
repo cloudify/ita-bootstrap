@@ -330,7 +330,10 @@ a.filtro, .filtro a, a .filtro{color: inherit;cursor: pointer;}
 
 }
 
-.cst-dropdown{ background: #fff;
+.cst-dropdown{
+   background: #fff;
+   display: block;
+   cursor: pointer;
 	.heading{ padding:$grid-gutter-width $grid-gutter-width $grid-gutter-width $grid-gutter-width*2; border-bottom: 1px solid $grigio-10; }
 	.heading a{font-size: $font-size-h5; color: $btn-default-bg; }
 	.heading a:hover, .heading a:focus{ text-decoration: none;}
