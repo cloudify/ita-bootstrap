@@ -1,5 +1,94 @@
-// Import varibili Bootstrap
-@import "bootstrap/variables";
+// Import variabili Bootstrap
+@import "variables";
+
+//
+// Personalizzazione stili bootstrap
+//
+// Nota: queste variabili sono state migrate dalla versione 3.3.5
+// alcune variabili sono state rinominate, altre sono sparite, in
+// altre è cambiata l'unità di misura e andranno convertite (vedi
+// i TODO).
+// Per info: https://v4-alpha.getbootstrap.com/migration/
+
+$gray:                      #1C2024 !default;
+$gray-light:                #dddddd !default;
+$gray-lighter:              #c6c6c6 !default;
+
+$brand-primary:         #0066cc !default;
+
+$body-bg:               #F0F0F0 !default;
+$body-color:    					$gray !default;
+
+$link-hover-color:      #003366 !default;
+
+$font-family-sans-serif:  "Titillium Web", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
+
+// TODO le dimensioni dei font non sono piu' espresse in px
+// per ora lasciamo quelle di default di bootstrap (good defaults)
+// $font-size-base:          18px !default;
+// $font-size-small:         15px !default; // ~16px
+// $font-size-h1:            54px;
+// $font-size-h1-sm:         36px;
+// $line-height-h1:          1.2;
+// $font-size-h2:            40px;
+// $font-size-h2-sm:         32px;
+// $line-height-h2:          1.2;
+// $font-size-h3:            32px;
+// $font-size-h3-sm:         28px;
+// $line-height-h3:          1.2;
+// $font-size-h4:            23px;
+// $line-height-h4:          1.2;
+// $font-size-h5:            21px;
+// $line-height-h5:          1.2;
+// $font-size-h6:            18px;
+// $line-height-h6:          1.55;
+// $line-height-base:        1.5555555556 !default; // 28/18
+
+// TODO Lasciamo l'icon-font-path di default
+// $icon-font-path: if($bootstrap-sass-asset-helper, "", "../fonts/") !default;
+
+// TODO Variabili rimosse in bootstrap 4
+// $padding-base-vertical:     9px !default;
+// $padding-base-horizontal:   16px !default;
+// $padding-small-horizontal:  12px !default;
+
+$btn-font-weight:                bold !default;
+
+// $btn-default-* -> $btn-secondary-*
+$btn-secondary-color:              #004a4d !default;
+$btn-secondary-bg:                 #00c5ca !default;
+// TODO Variabili rimosse in bootstrap 4
+// $btn-default-bg-hover:           #65dde0 !default;
+// $btn-default-border:             #00c5ca !default;
+
+$input-border-radius:            0 !default;
+$input-border-radius-large:      0 !default;
+$input-border-radius-small:      0 !default;
+
+// $grid-gutter-width -> $grid-gutter-width-base
+$grid-gutter-width-base:         16px !default;
+
+// TODO non é più in px
+// $nav-link-padding:                          17px 24px !default;
+
+$nav-tabs-active-link-hover-bg:             #fff !default;
+
+$state-danger-text:              #ff0000 !default;
+$state-danger-border:            $state-danger-text !default;
+
+// TODO I Panel sono stati dismessi in favore delle Card
+// $panel-body-padding:          24px !default;
+// $panel-border-radius:         10px !default;
+// $panel-footer-bg:             #fff !default;
+
+// I Badge sono stati rimossi in favore di label + .tag-pill
+// $badge-bg:                    $brand-primary !default;
+
+$blockquote-font-size:        ($font-size-base) !default;
+
+//
+// Stili extra
+//
 
 //	COLORI
 $blu-italia-base:					#0066cc;
@@ -40,7 +129,7 @@ $light-blue: 						#c6f3f5;
 $mark:								#b2ebed;
 $link-color-visited:				#428fdb !default;
 $font-size-h7:            			floor(($font-size-base * 0.8889)) !default;// ~16px
-$btn-default-bg-hover:      		#65dde0 !default;
+$btn-secondary-bg-hover:      		#65dde0 !default;
 $border-width-input-activated:  	4px;
 $icon-search-dim:					48px;
 
@@ -129,39 +218,39 @@ $icon-search-dim:					48px;
 	@include box-shadow(0px 2px 4px 0px rgba(28, 32, 36 , 0.26));
 	border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px;
 }
-.btn-default {
+.btn-secondary {
   &:hover,
   &:focus,
   &.focus{
-	  background: $btn-default-bg-hover;
-	  border-color: $btn-default-bg-hover;
-	  color: $btn-default-color;
-	  @include opacity(1);
+	  background: $btn-secondary-bg-hover;
+	  border-color: $btn-secondary-bg-hover;
+	  color: $btn-secondary-color;
+	  opacity: 1;
 
   }
   &:active,
   &.active,
   .open > &.dropdown-toggle{
-	  background:$btn-default-color;
-	  border-color: $btn-default-color;
-	  color: $btn-default-bg-hover;
-	  @include opacity(1);
+	  background:$btn-secondary-color;
+	  border-color: $btn-secondary-color;
+	  color: $btn-secondary-bg-hover;
+	  opacity: 1;
 
 	  	&:hover,
 	    &:focus,
 	    &.focus,
 	    &:active,
 		&.active{
-		    background:$btn-default-color;
-			border-color: $btn-default-color;
-			color: $btn-default-bg-hover;
-			@include opacity(1);
+		    background:$btn-secondary-color;
+			border-color: $btn-secondary-color;
+			color: $btn-secondary-bg-hover;
+			opacity: 1;
 	    }
   }
 }
 
-a.btn-default:visited {
-  color: $btn-default-color;
+a.btn-secondary:visited {
+  color: $btn-secondary-color;
 }
 a.btn-primary:visited {
   color: $btn-primary-color;
@@ -199,12 +288,12 @@ h5, .h5{
  	font-weight: normal;
 }
 
-h1, .h1 { line-height: $line-height-h1 }
-h2, .h2 { line-height: $line-height-h2 }
-h3, .h3 { line-height: $line-height-h3 }
-h4, .h4 { line-height: $line-height-h4 }
-h5, .h5 { line-height: $line-height-h5 }
-h6, .h6 { line-height: $line-height-h6 }
+// h1, .h1 { line-height: $line-height-h1 }
+// h2, .h2 { line-height: $line-height-h2 }
+// h3, .h3 { line-height: $line-height-h3 }
+// h4, .h4 { line-height: $line-height-h4 }
+// h5, .h5 { line-height: $line-height-h5 }
+// h6, .h6 { line-height: $line-height-h6 }
 
 // h7, .h7 { font-size: $font-size-h7; line-height: $line-height-h7 }
 
@@ -228,7 +317,7 @@ mark,
 }
 
 blockquote {
-  padding: ($line-height-computed) / 2 $line-height-computed;
+//  padding: ($line-height-computed) / 2 $line-height-computed;
 	font-style: italic;
 }
 
@@ -243,7 +332,7 @@ blockquote {
     $list: "#{$list}, .col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}";
   }
   #{$list} {
-    padding-bottom: $grid-gutter-width;
+    padding-bottom: $grid-gutter-width-base;
   }
 }
 
@@ -260,7 +349,7 @@ blockquote {
 }
 
 // Centered container element
-@mixin container-fixed($gutter: $grid-gutter-width) {
+@mixin container-fixed($gutter: $grid-gutter-width-base) {
   padding:  ($gutter/ 2) + $gutter;
 }
 
@@ -270,7 +359,7 @@ blockquote {
 
 
 
-.alert-danger{ color:$gray-base; }
+.alert-danger{ color:$gray; }
 .has-error .form-control{border-width: $border-width-input-activated;}
 .icon-search{width:$icon-search-dim;height:$icon-search-dim; text-align: center; font-size: 0.7em; border-radius:0;-moz-border-radius:0;-webkit-border-radius:0; padding: 0;}
 
@@ -299,7 +388,7 @@ blockquote {
 
 
 
-.tag{@include border-bottom-radius(12px); @include border-top-radius(12px); border: 1px solid #d6d6d6; display: inline-block; background-color: #fff; padding: 0 10px; height: 24px; @include box-sizing(border-box); position: relative; line-height: 22px; font-size: $font-size-small; color: $gray-base;
+.tag{@include border-bottom-radius(12px); @include border-top-radius(12px); border: 1px solid #d6d6d6; display: inline-block; background-color: #fff; padding: 0 10px; height: 24px; box-sizing: border-box; position: relative; line-height: 22px; font-size: $font-size-sm; color: $gray;
 	.fa-stack{ font-size: 13px; position: absolute; right:-2px; top: -2px; bottom: 0;}
 }
 .tag.active{ background-color: $light-blue;}
@@ -314,13 +403,13 @@ a.filtro, .filtro a, a .filtro{color: inherit;cursor: pointer;}
 .cst-radio-group{ border: 1px solid $grigio-10; background: #fff;
 	.radio, .checkbox{ padding: 0; margin: 0;
 		input[type="radio"], input[type="checkbox"]{display: none;}
-		input[type="radio"], input[type="checkbox"]{position: absolute; top:$grid-gutter-width; right: 0; margin-right: $grid-gutter-width; margin-left: 0;}
-		label{padding: $grid-gutter-width 20px $grid-gutter-width $grid-gutter-width; display: block; color: $grigio-50; border-bottom: 1px solid $grigio-10;}
+		input[type="radio"], input[type="checkbox"]{position: absolute; top:$grid-gutter-width-base; right: 0; margin-right: $grid-gutter-width-base; margin-left: 0;}
+		label{padding: $grid-gutter-width-base 20px $grid-gutter-width-base $grid-gutter-width-base; display: block; color: $grigio-50; border-bottom: 1px solid $grigio-10;}
 		input[type=radio]:checked + label, input[type="checkbox"]:checked + label{
 		    background: $light-blue;color: $grigio-70;
 		}
 		label:after{
-			content: url(img/radio.png);position: absolute; top:22px; right: 0; margin-right: $grid-gutter-width;
+			content: url(img/radio.png);position: absolute; top:22px; right: 0; margin-right: $grid-gutter-width-base;
 		}
 		input[type=radio]:checked + label:after, input[type="checkbox"]:checked + label:after{
 			content: url(img/radio-checked.png);
@@ -332,8 +421,8 @@ a.filtro, .filtro a, a .filtro{color: inherit;cursor: pointer;}
 
 .cst-dropdown{
    background: #fff;
-	.heading{ padding:$grid-gutter-width $grid-gutter-width $grid-gutter-width $grid-gutter-width*2; border-bottom: 1px solid $grigio-10; }
-	.heading a{font-size: $font-size-h5; color: $btn-default-bg; display: block; cursor: pointer; }
+	.heading{ padding:$grid-gutter-width-base $grid-gutter-width-base $grid-gutter-width-base $grid-gutter-width-base*2; border-bottom: 1px solid $grigio-10; }
+	.heading a{font-size: $font-size-h5; color: $btn-secondary-bg; display: block; cursor: pointer; }
 	.heading a:hover, .heading a:focus{ text-decoration: none;}
 	.heading a:after {
         font-family: "FontAwesome";
@@ -342,7 +431,7 @@ a.filtro, .filtro a, a .filtro{color: inherit;cursor: pointer;}
 	    -webkit-font-smoothing: antialiased;
         content:"\f106";
 		float: right;
-		color: $btn-default-bg;
+		color: $btn-secondary-bg;
 	}
 	.heading a.collapsed:after {
 	    content: "\f107";

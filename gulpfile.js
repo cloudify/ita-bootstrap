@@ -8,21 +8,22 @@ var sourcemaps = require('gulp-sourcemaps');
 var ghPages = require('gulp-gh-pages');
 var del = require('del');
 
-// Bower assets
+// Copy bower assets to build/lib
 gulp.task('bower', function moveBowerDeps() {
   return gulp.src(mainBowerFiles(), { base: 'bower_components' })
       .pipe(gulp.dest('build/lib'));
 });
 
+// Merge custom scss into bootstrap
 gulp.task('bootstrap:customize', ['bower'], function() {
-  gulp.src('sass/bootstrap/*.scss')
-    .pipe(gulp.dest('build/lib/bootstrap-sass/assets/stylesheets/bootstrap/'));
+  // gulp.src('sass/bootstrap/*.scss')
+  //   .pipe(gulp.dest('build/lib/bootstrap/scss/'));
   return gulp.src('sass/*.scss')
-    .pipe(gulp.dest('build/lib/bootstrap-sass/assets/stylesheets/'));
+    .pipe(gulp.dest('build/lib/bootstrap/scss/'));
 });
 
 gulp.task('bootstrap:js', ['bootstrap:customize'], function() {
-  return   gulp.src('build/lib/bootstrap-sass/assets/javascripts/*')
+  return   gulp.src('build/lib/bootstrap/dist/js/*')
     .pipe(gulp.dest('dist/js'));
 });
 
@@ -42,7 +43,7 @@ gulp.task('cssimg', ['bootstrap:customize'], function() {
 });
 
 gulp.task('sass', ['bootstrap:customize'], function() {
-  return gulp.src('build/lib/bootstrap-sass/assets/stylesheets/ita-bootstrap.scss')
+  return gulp.src('build/lib/bootstrap/scss/bootstrap.scss')
 	.pipe(sass.sync({precision:8}).on('error', sass.logError))
 	.pipe(minifyCss({compatibility: 'ie8'}))
     .pipe(gulp.dest('dist/css'));

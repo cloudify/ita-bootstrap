@@ -14,14 +14,14 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap-sass": "bootstrap-sass-official#~3.3.5"
+    "bootstrap": "bootstrap#v4.0.0-alpha.6"
   },
   "overrides": {
-    "bootstrap-sass": {
+    "bootstrap": {
       "main": [
-	  	"assets/stylesheets/_bootstrap.scss",
-	    "assets/javascripts/bootstrap.min.js",
-	    "assets/stylesheets/bootstrap/**/*"
+  	  	"scss/*.scss",
+  	    "scss/**/*",
+        "dist/js/bootstrap.min.js"
       ]
     },
     "jquery": {
